@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
+    background: rgba(224, 130, 16, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.logo {
+    font-size: 25px;
+    color: rgb(31, 77, 153);
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+.logo:hover {
+    color: skyblue;
+    text-shadow: 0 0 25px skyblue, 0 0 50px skyblue;
+    transform: scale(1.1);
+}
+span {
+    color: skyblue;
+}
+.navbar a {
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    margin: 0 10px;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+.navbar a:hover,
+.navbar a.active {
+    color: rgb(22, 25, 178);
+    border-bottom: 3px solid rgb(46, 112, 203);
+}
+.contact {
+    padding: 10px 20px;
+    background-color: white;
+    color: rgb(20, 53, 170);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+.contact:hover {
+    background-color: rgb(201, 206, 151);
+    box-shadow: 0 0 25px skyblue;
+    color: white;
+}
+.home {
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(16, 141, 110);
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 30px 5%;
+    flex-wrap: wrap;
+}
+.home-content {
+    max-width: 600px;
+}
+.home-content h3 {
+    font-size: 32px;
+}
+.home-content h1 {
+    font-size: 48px;
+    line-height: 1.2;
+}
+.home-content p {
+    font-size: 26px;
+    margin: 25px 0 30px;
+}
+.btn-box {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+.btn-1,
+.btn-2 {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-1 {
+    background-color: black;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+.btn-1:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+.btn-2 {
+    background-color: skyblue;
+    color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+.btn-2:hover {
+    background-color: white;
+    color: skyblue;
+}
+.img-box img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 550px;
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: skyblue;
+}
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.about,
+#education {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8% 5%;
+    gap: 2em;
+    background: black;
+    flex-wrap: wrap;
+}
+.about-img img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px skyblue, 0 0 50px skyblue;
+}
+.about-content h2 {
+    color: white;
+    font-size: 36px;
+}
+.about-content h3 {
+    font-size: 48px;
+    color: white;
+}
+.about-content p{
+    color: white;
+    font-size: 20px;
+    margin: 2em 0 3em;
+}
+#education {
+    background-color: rgb(124, 122, 191);
+    /* flex-direction: column; */
+}
+.year {
+    background-color: rgba(255, 255, 255, 0.256);
+    padding: 4px;
+    border-radius: 5px;
+}
+.my-study {
+    background-color: rgb(27, 116, 45);
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px black;
+    /* position: absolute; */
+}
+.outer {
+    border-left: 2px solid skyblue;
+    width: 60vw;
+    margin: auto;
+}
+.education-container {
+    padding-left: 10px;
+    width: 65vw;
+    /* max-width: 500px; */
+    margin: auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+.education-container .my-study::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: skyblue;
+    border-radius: 50%;
+    right: calc(100% - 7px);
+    top: 0;
+}
+.skill-container {
+    background: rgb(246, 245, 245);
+    padding: 8% 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+}
+.skill-content {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    flex-wrap: wrap;
+}
+.skill-content.reverse {
+    flex-direction: row-reverse;
+}
+.skill-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(255, 68, 0, 0.525), 0 0 50px rgba(255, 68, 0, 0.525);
+}
+.skill-img img:hover {
+    box-shadow: 0 0 25px skyblue, 0 0 50px skyblue;
+}
+.skill-text {
+    max-width: 500px;
+}
+.skill-text h3 {
+    font-size: 32px;
+    color: skyblue;
+}
+.skill-text p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+#projects {
+    padding: 8% 5%;
+    background: rgb(5, 0, 0);
+}
+.project-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    border: 1px solid skyblue;
+    border-radius: 8px;
+    padding: 2em;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 25px rgba(255, 68, 0, 0.525), 0 0 50px rgba(255, 68, 0, 0.525);
+}
+.project-card:hover {
+    box-shadow: 0 0 25px skyblue, 0 0 50px skyblue;
+}
+.project-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+.project-text h3 {
+    font-size: 24px;
+    color: skyblue;
+}
+.project-text p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+.footer {
+    width: 100%;
+    padding: 40px 0;
+    background-color: black;
+}
+.footer .social {
+    text-align: center;
+    padding-bottom: 25px;
+    color: white;
+}
+.footer .social a {
+    font-size: 24px;
+    color: white;
+    border: 2px solid skyblue;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    box-shadow: inset 0 0 10px skyblue, inset 0 0 10px skyblue;
+    transition: 0.3s ease;
+}
+.footer .social a:hover {
+    color: skyblue;
+    background-color: white;
+}
+.footer p {
+    text-align: center;
+    color: white;
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    .home h1 {
+        font-size: 32px;
+    }
+    .home h3 {
+        font-size: 20px;
+    }
+    .navbar a {
+        font-size: 14px;
+        margin: 0 5px;
+    }
+    .btn-box {
+        flex-direction: column;
+    }
+    .home-content h3 {
+        font-size: 28px;
+    }
+    .home-content h1 {
+        font-size: 36px;
+    }
+    .home-content p {
+        font-size: 24px;
+    }
+    .about-content h2 {
+        font-size: 28px;
+    }
+    .about-content h3 {
+        font-size: 36px;
+    }
+    .about-content p {
+        font-size: 18px;
+    }
+    .skill-text h3 {
+        font-size: 28px;
+    }
+    .skill-text p {
+        font-size: 18px;
+    }
+    .project-text h3 {
+        font-size: 20px;
+    }
+    .project-text p {
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    .home-content h3 {
+        font-size: 24px;
+    }
+    .home-content h1 {
+        font-size: 28px;
+    }
+    .home-content p {
+        font-size: 22px;
+    }
+    .about-content h2 {
+        font-size: 24px;
+    }
+    .about-content h3 {
+        font-size: 28px;
+    }
+    .about-content p {
+        font-size: 16px;
+    }
+    .skill-text h3 {
+        font-size: 24px;
+    }
+    .skill-text p {
+        font-size: 16px;
+    }
+    .project-text h3 {
+        font-size: 18px;
+    }
+    .project-text p {
+        font-size: 12px;
+    }
+    .header {
+        padding: 10px 2%;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .navbar a {
+        font-size: 12px;
+    }
+    .contact {
+        font-size: 14px;
+    }
+    .btn-1,
+    .btn-2 {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    
+    .skill-img img,
+    .project-img {
+        max-width: 300px;
+    }
+    .about-content,
+    .skill-content,
+    .project-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .home-content {
+        text-align: center;
+    }
+    .about-content,
+    .skill-content,
+    .project-container {
+        text-align: center;
+    }
+    .btn-box {
+        flex-direction: column;
+    }
+    .skill-img img,
+    .project-img {
+        max-width: 220px;
+    }
+}
+
+        </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><span>Mohan</span>Raghava</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Portfolio</a>
+            <a href="#about">About me</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+        </nav>  
+        <a href="#footer"><div class="contact">Contact Me</div></a>
+    </header>
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hi</h3>
+
+            <h1>I'm <span>Raghava<br></span><span class="text"></span></h1>
+
+            <p>I am a web developer deeply passionate about technology, driven to continuously learn and apply the latest web development trends to improve user experiences. 
+            <br> My experience includes front-end development, focusing on enhancing website responsiveness and user interaction..</p>
+
+               <div class="btn-box">
+                <p style="color: aqua;"> Download my resume here </p>
+                <a href="C:\Users\darkm\OneDrive\Pictures\AP22110011428.PDF" download class="btn-1">Download</a>
+               </div>
+        </div>
+        <div class="img-box">
+            <img src="C:\Users\darkm\OneDrive\Pictures\my.jpg" alt="">
+        </div>
+    </section>
+    <section class="about" id="about">
+            <div class="about-content" >
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Frontend <span>Developer</span></h3>
+            <p>
+                As a passionate web developer, I excel in creating elegant and responsive websites with HTML, CSS, and JavaScript. 
+                My strong attention to detail and problem-solving skills enable me to enhance user experiences. 
+                Driven by curiosity, I approach every project as a chance to innovate and push boundaries. 
+                I specialize in troubleshooting complex issues and crafting robust solutions, ensuring high-quality code that stands the test of time.
+                My commitment to excellence guarantees that each website I develop not only looks great but also provides a seamless experience across all devices.
+            </p>
+            <a href="#education" class="btn-2">Experience</a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="text-center mb-4" style="color: rgb(13, 13, 13)">
+        </h2>
+        <div class="skill-container">
+          <h2 class="heading" style="font-size: 62px;color: rgb(12, 12, 12)">S<span>kills</span></h2>
+            <div class="skill-content">
+                <div class="skill-text">
+                  <h3 class="heading" style="font-size: 42px;color: rgb(15, 15, 15)"><span>Data </span>Structures <br><span>and </span>Algorithms <span>(DSA)</span></h3>
+                    <!-- <h3>Data Structures and Algorithms (DSA)</h3> -->
+                    <p>Proficient in various data structures and algorithms, I excel in efficient problem-solving and crafting optimized solutions. 
+                        My strong foundation in these areas enables me to develop robust, high-performance code tailored to meet complex challenges and enhance overall functionality.</p>
+                </div>
+                <div class="skill-img">
+                    <img src="https://miro.medium.com/v2/resize:fit:1358/1*4ZcW5tSdizlbtDQyVpRTuA.jpeg" alt="DSA">
+                </div>
+            </div>
+            <div class="skill-content reverse">
+                <div class="skill-text">
+                  <h3 class="heading" style="font-size: 42px;color: white">C <span> and </span>C++</h3>
+                    <p>Proficient in C and C++ programming, possessing a strong grasp of object-oriented principles and system-level programming.</p>
+                </div>
+                <div class="skill-img">
+                    <img src="https://www.educative.io/cdn-cgi/image/f=auto,fit=contain,w=600/api/page/5295407815458816/image/download/4810048073629696" alt="C and C++">
+                </div>
+            </div>
+            <div class="skill-content">
+                <div class="skill-text">
+                  <h3 class="heading" style="font-size: 42px;color: white">Pyt<span>hon</span></h3>
+                    <p>Proficient in Python programming for web development, data analysis, and automation.</p>
+                </div>
+                <div class="skill-img">
+                    <img src="https://play-lh.googleusercontent.com/ShO8lmMq5rNQa16SxMCGLZ1w4oS-oM17mPWlxU9UaYSzzonFZ2hY6pdqG1Zo2lyGYQ" alt="Python">
+                </div>
+            </div>
+            <div class="skill-content reverse">
+                <div class="skill-text">
+                  <h3 class="heading" style="font-size: 42px;color: white">Full <span> Stack </span>Development</h3>
+                    <p>Experienced in full stack development using HTML, CSS, JavaScript, React, SQL, and MongoDB.</p>
+                </div>
+                <div class="skill-img">
+                    <img src="https://www.keycdn.com/img/support/full-stack-development.png" alt="Full Stack Development">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+      <h2 class="text-center mb-4" style="font-size: 42px;color: rgb(49, 28, 28)">
+        <span style="color: skyblue">E</span>ducation
+      </h2>
+      <div class="outer">
+        <div class="education-container">
+            <div class="my-study">
+              <span class="year">2023 & 2024</span>
+              <h2>NPTEL Courses</h2>
+              <p>
+                I have completed Python course in 2023 with good
+                scores which is conducted under IITs.
+                <br />
+                I have completed Pshycology of Emtions course in 2024 which is
+                conducted under IITs
+              </p>
+            </div>
+          </div>
+        <div class="education-container">
+          <div class="my-study">
+            <span class="year">2022</span>
+            <h2>Bachelor of Technology</h2>
+            <p>
+              I am currently enrolled in a Computer Science and Engineering
+              (CSE) program at SRM University AP, where I am pursuing my degree.
+            </p>
+          </div>
+        </div>
+         
+        <div class="education-container">
+          <div class="my-study">
+            <span class="year">2020-2022</span>
+            <h2>Intermediate</h2>
+            <p>
+              I have completed my intermediate education at Sri chaitanya Junior
+              College under the Board of Intermediate Education in Andhra
+              Pradesh (AP).
+            </p>
+          </div>
+        </div>
+        <div class="education-container">
+          <div class="my-study">
+            <span class="year">2020</span>
+            <h2>Schooling</h2>
+            <p>
+              I have completed my Schooling at Police School
+              under The Board of Secondary Education Of Andhra Pradesh (BSEAP).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     
+    
+    <section id="projects">
+      <h2 class="heading" style="font-size: 62px;color: rgb(44, 42, 165)">P<span>rojects</span></h2>
+      <div class="project-container">
+          <a href="https://github.com/Raghava-vvs/Online-Quiz" target="_blank" class="project-card">
+              <img src="https://cdn.dribbble.com/userupload/12536792/file/original-a944f809f2c7bd1fa7e7a73c610b66cd.jpg?crop=0x0-2200x1650&resize=400x300&vertical=center" alt="Trie Data Structure" class="project-img">
+              <div class="project-text">
+                  <h3>Online Tambola game</h3>
+                  <p>A multiplayer game built with HTML, CSS, JavaScript and PHP..</p>
+              </div>
+          </a>
+      </div>
+  </section>
+  
+  
+
+    <footer class="footer" id="footer">
+      <h2 class="heading" style="text-align:center;font-size: 42px;color: white">Contact <span>Me</span></h2><br>
+      <p>Cntact Me if requried via :</p><br>
+        <div class="social">
+          </a>
+          <a href="https://www.instagram.com/raghava_nani_18/" target="_blank">
+            <i class="fa-brands fa-instagram my"></i
+          ></a>
+          <a href="https://github.com/Raghava-vvs" target="_blank"
+            ><i class="fa-brands fa-square-github my"></i
+          ></a>
+          <a href="mailto:mohanraghava_vejju@srmap.edu.in"
+            ><i class="fa-regular fa-envelope my"></i
+          ></a>
+        </div>
+       <b><p>Let's Collabrate</p><br></b> 
+          <p>Let's work together to build a portfolio that effectively showcases your skills and expertise.</p><br>
+
+        <p class="copyright">© 2024 Raghava |All
+            Rights Reserved 
+        </p>
+    </footer>
+    <script>
+        var typed= new Typed(".text", {
+    strings:["Frontend Developer" , "Programmer" , "Web Developer"],
+    typeSpeed:100,
+    backSpeed:100,
+    backDelay:1000,
+    loop:true
+});
+    </script>
+</body>
+</html>
